@@ -13,7 +13,9 @@ def main():
     # Augment the base URL with a limit parameter to 1000 results
     pokemon = requests.get(f"{POKEURL}?limit=2000")
     pokemon = pokemon.json()
-    df = pd.DataFrame(pokemon)
+    df = pd.DataFrame(pokemon["results"])
+    jsn=df['name'].to_json()
+    
     # Loop through data, and print pokemon names
 
 
